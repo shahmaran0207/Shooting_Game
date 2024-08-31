@@ -1,0 +1,4 @@
+repository "Shooting_Game@junguen@cloud"
+  path "/"
+    br "/main"
+    co "/main"
