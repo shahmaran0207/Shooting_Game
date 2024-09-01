@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     {
         Move();
         Fire();
+        Reload();
     }
 
     void Move()
@@ -53,10 +54,19 @@ public class Player : MonoBehaviour
     {
         if (!Input.GetButton("Fire1")) return;
 
-        //Instantiate: ¸Å°³º¯¼ö ¿ÀºêÁ§Æ®¸¦ »ý¼ºÇÏ´Â ÇÔ¼ö
+        if (curShotDelay < maxShotDelay) return;
+
+        //Instantiate: ë§¤ê°œë³€ìˆ˜ ì˜¤ë¸Œì íŠ¸ë¥¼ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
         GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation); 
         Rigidbody2D rigid=bullet.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.up*10, ForceMode2D.Impulse);
+
+        curShotDelay = 0;
+    }
+
+    void Reload()
+    {
+        curShotDelay += Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
