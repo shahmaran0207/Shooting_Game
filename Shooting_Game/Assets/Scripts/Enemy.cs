@@ -28,10 +28,7 @@ public class Enemy : MonoBehaviour
         //※ 단, 함수 이름을 아래처럼 문자열로 사용해야 함!
         Invoke("ReturnSprite", 0.1f);       
 
-        if(health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        if(health <= 0) Destroy(gameObject);
     }
 
     void ReturnSprite()
@@ -42,6 +39,12 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "BorderBullet") Destroy(gameObject);
-        else if (collision.gameObject.tag == "PlayerBullet") Destroy(gameObject);
+        else if (collision.gameObject.tag == "PlayerBullet")
+        {
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            OnHit(bullet.damage);
+
+            Destroy(collision.gameObject);
+        }
     }
 }

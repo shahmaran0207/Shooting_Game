@@ -303,7 +303,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 99599811}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 2.44, z: 0}
+  m_LocalPosition: {x: 0.22375451, y: 4.3803926, z: 0}
   m_LocalScale: {x: 0.4244644, y: 0.4244644, z: 0.4244644}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -398,6 +398,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bff618deb089e4cac09b5cd57cfce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+  health: 50
+  sprites:
+  - {fileID: -2063200387, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
+  - {fileID: -733230340, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
 --- !u!1 &154082504
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +479,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -551,7 +556,7 @@ Transform:
   m_GameObject: {fileID: 154082504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3116512, y: 0.9715376, z: 0}
+  m_LocalPosition: {x: -1.0078967, y: 3.3419302, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -569,6 +574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bff618deb089e4cac09b5cd57cfce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1.5
+  health: 20
+  sprites:
+  - {fileID: 1075077570, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
+  - {fileID: 73137255, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
 --- !u!1 &278680248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1475,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1532,7 +1542,7 @@ Transform:
   m_GameObject: {fileID: 1412178588}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1014869, y: 0.67276084, z: 0}
+  m_LocalPosition: {x: 1.46, y: 3.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1550,6 +1560,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bff618deb089e4cac09b5cd57cfce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3.5
+  health: 3
+  sprites:
+  - {fileID: -891016052, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
+  - {fileID: 2068655685, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
 --- !u!1 &1415391206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,7 +2005,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2073,7 +2088,7 @@ Transform:
   m_GameObject: {fileID: 1929226401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13624549, y: 0.8796076, z: 0}
+  m_LocalPosition: {x: 0.44, y: 3.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2091,6 +2106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bff618deb089e4cac09b5cd57cfce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2.5
+  health: 10
+  sprites:
+  - {fileID: 456144185, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
+  - {fileID: 2070977064, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
