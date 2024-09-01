@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float speed;
     public float maxShotDelay;
     public float curShotDelay;
+    public float power;
 
     public bool isTouchTop;
     public bool isTouchBottom;
@@ -56,10 +57,41 @@ public class Player : MonoBehaviour
 
         if (curShotDelay < maxShotDelay) return;
 
-        //Instantiate: 매개변수 오브젝트를 생성하는 함수
-        GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation); 
-        Rigidbody2D rigid=bullet.GetComponent<Rigidbody2D>();
-        rigid.AddForce(Vector2.up*10, ForceMode2D.Impulse);
+        switch (power) {
+            case 1:
+                //제일 작은 총알
+                //Instantiate: 매개변수 오브젝트를 생성하는 함수
+                GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation);
+                Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
+                rigid.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                break;
+
+            case 2:
+                GameObject bulletR = Instantiate(bulletObjA, transform.position+Vector3.right*0.1f, transform.rotation);
+                GameObject bulletL = Instantiate(bulletObjA, transform.position + Vector3.left * 0.1f, transform.rotation);
+
+                Rigidbody2D rigidR = bulletR.GetComponent<Rigidbody2D>();
+                Rigidbody2D rigidL = bulletL.GetComponent<Rigidbody2D>();
+
+                rigidR.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                rigidL.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                break;
+
+            case 3:
+                GameObject bulletRR = Instantiate(bulletObjA, transform.position + Vector3.right * 0.25f, transform.rotation);
+                GameObject bulletCC = Instantiate(bulletObjB, transform.position, transform.rotation);
+                GameObject bulletLL = Instantiate(bulletObjA, transform.position + Vector3.left * 0.25f, transform.rotation);
+
+                Rigidbody2D rigidRR = bulletRR.GetComponent<Rigidbody2D>();
+                Rigidbody2D rigidCC = bulletCC.GetComponent<Rigidbody2D>();
+                Rigidbody2D rigidLL = bulletLL.GetComponent<Rigidbody2D>();
+
+                rigidRR.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                rigidCC.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                rigidLL.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                break;
+
+        }
 
         curShotDelay = 0;
     }
