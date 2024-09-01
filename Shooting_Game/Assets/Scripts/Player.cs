@@ -5,11 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
+    public float maxShotDelay;
+    public float curShotDelay;
 
     public bool isTouchTop;
     public bool isTouchBottom;
     public bool isTouchLeft;
     public bool isTouchRight;
+
+    public GameObject bulletObjA;
+    public GameObject bulletObjB;
+
     Animator anim;
 
     void Awake()
@@ -18,6 +24,12 @@ public class Player : MonoBehaviour
     }
 
     void Update()
+    {
+        Move();
+        Fire();
+    }
+
+    void Move()
     {
         float h = Input.GetAxisRaw("Horizontal");
 
@@ -35,6 +47,16 @@ public class Player : MonoBehaviour
         {
             anim.SetInteger("Input", (int)h);
         }
+    }
+
+    void Fire()
+    {
+        if (!Input.GetButton("Fire1")) return;
+
+        //Instantiate: 매개변수 오브젝트를 생성하는 함수
+        GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation); 
+        Rigidbody2D rigid=bullet.GetComponent<Rigidbody2D>();
+        rigid.AddForce(Vector2.up*10, ForceMode2D.Impulse);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
