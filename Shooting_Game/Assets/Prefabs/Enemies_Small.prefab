@@ -162,8 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: S
-  speed: 3.5
+  enemyscore: 100
   health: 3
+  speed: 3.5
   maxShotDelay: 2
   curShotDelay: 0
   sprites:

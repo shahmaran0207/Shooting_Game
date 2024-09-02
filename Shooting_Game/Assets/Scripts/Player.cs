@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public int life;
     public int score;
 
+    public bool isHit;
     public bool isTouchTop;
     public bool isTouchBottom;
     public bool isTouchLeft;
@@ -128,8 +129,17 @@ public class Player : MonoBehaviour
         }
         else if(collision.gameObject.tag=="Enemy" || collision.gameObject.tag == "Enemy Bullet")
         {
-            mamager.RespawnPlayer();
+            if (isHit) return;
+            isHit = true;
+
+            life--;
+            mamager.UpdateLifeIcon(life);
+
+            if (life == 0) mamager.GameOver();
+            else mamager.RespawnPlayer();
+
             gameObject.SetActive(false);
+            Destroy(collision.gameObject);
         }
     }
 

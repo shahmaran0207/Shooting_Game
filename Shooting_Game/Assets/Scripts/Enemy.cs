@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
     public string enemyName;
 
-    public float speed;
+    public int enemyscore;
     public int health;
+
+    public float speed;
     public float maxShotDelay;
     public float curShotDelay;
     
@@ -98,9 +101,15 @@ public class Enemy : MonoBehaviour
 
         //Invoke: 시간차를 두기 위해 사용
         //※ 단, 함수 이름을 아래처럼 문자열로 사용해야 함!
-        Invoke("ReturnSprite", 0.1f);       
+        Invoke("ReturnSprite", 0.1f);
 
-        if(health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            Player playerLogic = player.GetComponent<Player>();
+            playerLogic.score += enemyscore;
+
+            Destroy(gameObject);
+        }
     }
 
     void ReturnSprite()
