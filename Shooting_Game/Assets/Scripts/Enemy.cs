@@ -10,13 +10,15 @@ public class Enemy : MonoBehaviour
     public Sprite[] sprites;
 
     SpriteRenderer spriteRenderer;
-    Rigidbody2D rigid;
+    // Rigidbody2D rigid;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    /*      좌 우 에서 나타나는 적으로 인해 더 이상 사용 불가능한 로직
         rigid = GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.down * speed;      //velocity: 속력
+    */
     }
 
     void OnHit(int damage)
