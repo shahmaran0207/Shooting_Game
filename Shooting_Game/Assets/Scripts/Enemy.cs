@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
             Vector3 dirVec = player.transform.position - transform.position;
 
-            rigid.AddForce(dirVec.normalized * 10, ForceMode2D.Impulse);
+            rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
         }
 
         else if (enemyName == "L")
@@ -61,8 +61,8 @@ public class Enemy : MonoBehaviour
             Vector3 dirVecR = player.transform.position - (transform.position + Vector3.right * 0.3f);
             Vector3 dirVecL = player.transform.position - (transform.position + Vector3.left * 0.3f);
 
-            rigidR.AddForce(dirVecR.normalized * 10, ForceMode2D.Impulse);
-            rigidL.AddForce(dirVecL.normalized * 10, ForceMode2D.Impulse);
+            rigidR.AddForce(dirVecR.normalized * 4, ForceMode2D.Impulse);
+            rigidL.AddForce(dirVecL.normalized * 4, ForceMode2D.Impulse);
         }
         else if (enemyName == "EL")
         {
@@ -78,9 +78,9 @@ public class Enemy : MonoBehaviour
             Vector3 dirVecC = player.transform.position - transform.position;
             Vector3 dirVecL = player.transform.position - (transform.position + Vector3.left * 0.3f);
 
-            rigidR.AddForce(dirVecR.normalized * 10, ForceMode2D.Impulse);
-            rigidC.AddForce(dirVecC.normalized * 10, ForceMode2D.Impulse);
-            rigidL.AddForce(dirVecL.normalized * 10, ForceMode2D.Impulse);
+            rigidR.AddForce(dirVecR.normalized * 5, ForceMode2D.Impulse);
+            rigidC.AddForce(dirVecC.normalized * 5, ForceMode2D.Impulse);
+            rigidL.AddForce(dirVecL.normalized * 5, ForceMode2D.Impulse);
         }
 
         curShotDelay = 0;
