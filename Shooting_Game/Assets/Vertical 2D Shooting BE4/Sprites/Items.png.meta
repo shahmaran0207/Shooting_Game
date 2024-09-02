@@ -138,7 +138,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -192,385 +192,385 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Power 0
+      name: Items_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 34
+        y: 38
         width: 16
-        height: 16
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc223e07f774b7f60800000000000000
-      internalID: 8033092973025764044
+      spriteID: 5ad02f12bc5027d4aa309bd3892ad2a5
+      internalID: -765368976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power 1
+      name: Items_1
       rect:
         serializedVersion: 2
         x: 17
-        y: 34
+        y: 38
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 197af025acc823c30800000000000000
-      internalID: 4337684191699249041
+      spriteID: 2b4601d20c91e194c91adde85bcac35b
+      internalID: 1695625203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power 2
+      name: Items_2
       rect:
         serializedVersion: 2
         x: 34
-        y: 34
+        y: 38
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dca21188ff5b739f0800000000000000
-      internalID: -488721925442295091
+      spriteID: 35d529649a582ce4da2bd0ecc0791a60
+      internalID: -401949277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power 3
+      name: Items_3
       rect:
         serializedVersion: 2
         x: 51
-        y: 34
+        y: 38
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7b306552e906e690800000000000000
-      internalID: -7573354855677281409
+      spriteID: cd67e14f93f4e0944bd49e0e17b4b403
+      internalID: 230608144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power 4
+      name: Items_4
       rect:
         serializedVersion: 2
         x: 68
-        y: 34
+        y: 36
         width: 16
-        height: 16
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e3eb0c5b8f5ff810800000000000000
-      internalID: 1801263428120863714
+      spriteID: c3270b6e5431db241a5228a6dc78acb7
+      internalID: 204788297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power 5
+      name: Items_5
       rect:
         serializedVersion: 2
         x: 85
-        y: 34
+        y: 36
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0bc6050d066f1da0800000000000000
-      internalID: -5971942374765049077
+      spriteID: bfe54c72671075445801e2fda59250ea
+      internalID: 84246186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power 6
+      name: Items_6
       rect:
         serializedVersion: 2
         x: 102
-        y: 34
+        y: 36
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78befbdbaf6d26040800000000000000
-      internalID: 4639506938558671751
+      spriteID: 744e0de6de4803445be7e4b34b0d5c4c
+      internalID: 414301051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power 7
+      name: Items_7
       rect:
         serializedVersion: 2
         x: 119
-        y: 34
+        y: 36
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02f07f22fe1db5ba0800000000000000
-      internalID: -6099050445329199328
+      spriteID: bcdcaca9b08cc044fbc5a09cb262ad65
+      internalID: -1018992540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Power 8
+      name: Items_8
       rect:
         serializedVersion: 2
         x: 136
-        y: 34
+        y: 38
         width: 16
-        height: 16
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05202712df5bcf290800000000000000
-      internalID: -7855203551248514480
+      spriteID: 3ac9a367e39fdcf46b5e65d7d2e1dcc5
+      internalID: -859452454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 0
+      name: Items_9
       rect:
         serializedVersion: 2
         x: 0
-        y: 17
+        y: 21
         width: 16
-        height: 16
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cede32ab9f42853e0800000000000000
-      internalID: -2064859774160998932
+      spriteID: 7441a062858132f45bb5761efeb61a68
+      internalID: 1028031173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 1
+      name: Items_10
       rect:
         serializedVersion: 2
         x: 17
-        y: 17
+        y: 21
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99d4a2433016abcc0800000000000000
-      internalID: -3694533877916086887
+      spriteID: 695af53abee49c14f90c8cd4784098b1
+      internalID: 1598621073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 2
+      name: Items_11
       rect:
         serializedVersion: 2
         x: 34
-        y: 17
+        y: 21
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 165ed0fa2326a2c10800000000000000
-      internalID: 2029542551908640097
+      spriteID: 3f643b332db156f42ae4b21b33a8c0e3
+      internalID: 1600849332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 3
+      name: Items_12
       rect:
         serializedVersion: 2
         x: 51
-        y: 17
+        y: 21
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1776e599f64a9d8d0800000000000000
-      internalID: -2821042892349479055
+      spriteID: 2f11581b17c17b948ad4ba8a84f463fc
+      internalID: 918588451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 4
+      name: Items_13
       rect:
         serializedVersion: 2
         x: 68
-        y: 17
+        y: 19
         width: 16
-        height: 16
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b33f4f23c7bdd4c0800000000000000
-      internalID: -4261047623482395726
+      spriteID: a04550bc6237d4044a9ab504456ed0f9
+      internalID: -1965008540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 5
+      name: Items_14
       rect:
         serializedVersion: 2
         x: 85
-        y: 17
+        y: 19
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a1d3e365d8cc9330800000000000000
-      internalID: 3719068211130651045
+      spriteID: bc163fe763df64e488393e6be71221b0
+      internalID: 197281335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 6
+      name: Items_15
       rect:
         serializedVersion: 2
         x: 102
-        y: 17
+        y: 19
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a936c71424a7d840800000000000000
-      internalID: 5248844365648247204
+      spriteID: cf54c83baf01b9d4cb3a01c658b823c2
+      internalID: 1671509919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 7
+      name: Items_16
       rect:
         serializedVersion: 2
         x: 119
-        y: 17
+        y: 19
         width: 16
-        height: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b922bf3bc951ec590800000000000000
-      internalID: -7652154954077232485
+      spriteID: b7b77d76d4af4a94f94bf5f94fe96c37
+      internalID: 1380771493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 8
+      name: Items_17
       rect:
         serializedVersion: 2
         x: 136
-        y: 17
+        y: 21
         width: 16
-        height: 16
+        height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56cf8056d726c46d0800000000000000
-      internalID: -3004918560657441691
+      spriteID: 42c298358eaee994b884085b92c73cbe
+      internalID: 1223741298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin 0
+      name: Items_18
       rect:
         serializedVersion: 2
         x: 0
@@ -578,83 +578,83 @@ TextureImporter:
         width: 13
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a84303bdb8a56ed0800000000000000
-      internalID: -2421343691936151383
+      spriteID: 6736f84b69a9dae4e85acb78a7d5171f
+      internalID: 1299039604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin 1
+      name: Items_19
       rect:
         serializedVersion: 2
-        x: 14
+        x: 16
         y: 0
-        width: 13
+        width: 9
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0c736e6bbbcb0280800000000000000
-      internalID: -9075936618163766259
+      spriteID: 3328fe361b79a744288e7e544773fabb
+      internalID: 168757128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin 2
+      name: Items_20
       rect:
         serializedVersion: 2
-        x: 28
+        x: 32
         y: 0
-        width: 13
+        width: 5
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9938ef1f204f0e00800000000000000
-      internalID: 1013099012324604318
+      spriteID: 9e84106c6c1b8da4da72cd4bbefa18ac
+      internalID: -1992888199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin 3
+      name: Items_21
       rect:
         serializedVersion: 2
-        x: 42
+        x: 44
         y: 0
-        width: 13
+        width: 9
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53d00659e31608800800000000000000
-      internalID: -115133729626271356
+      spriteID: e5004424e47a8ed4887a727fc8d2d1c6
+      internalID: 521007724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Follower
+      name: Items_22
       rect:
         serializedVersion: 2
         x: 56
@@ -662,14 +662,14 @@ TextureImporter:
         width: 14
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 356b7ba33be291fb0800000000000000
-      internalID: 612596470744354101
+      spriteID: a00a196286c9308419fac5474837b3d3
+      internalID: 51968979
       vertices: []
       indices: 
       edges: []
@@ -685,29 +685,29 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boom 0: -2064859774160998932
-      Boom 1: -3694533877916086887
-      Boom 2: 2029542551908640097
-      Boom 3: -2821042892349479055
-      Boom 4: -4261047623482395726
-      Boom 5: 3719068211130651045
-      Boom 6: 5248844365648247204
-      Boom 7: -7652154954077232485
-      Boom 8: -3004918560657441691
-      Coin 0: -2421343691936151383
-      Coin 1: -9075936618163766259
-      Coin 2: 1013099012324604318
-      Coin 3: -115133729626271356
-      Follower: 612596470744354101
-      Power 0: 8033092973025764044
-      Power 1: 4337684191699249041
-      Power 2: -488721925442295091
-      Power 3: -7573354855677281409
-      Power 4: 1801263428120863714
-      Power 5: -5971942374765049077
-      Power 6: 4639506938558671751
-      Power 7: -6099050445329199328
-      Power 8: -7855203551248514480
+      Items_0: -765368976
+      Items_1: 1695625203
+      Items_10: 1598621073
+      Items_11: 1600849332
+      Items_12: 918588451
+      Items_13: -1965008540
+      Items_14: 197281335
+      Items_15: 1671509919
+      Items_16: 1380771493
+      Items_17: 1223741298
+      Items_18: 1299039604
+      Items_19: 168757128
+      Items_2: -401949277
+      Items_20: -1992888199
+      Items_21: 521007724
+      Items_22: 51968979
+      Items_3: 230608144
+      Items_4: 204788297
+      Items_5: 84246186
+      Items_6: 414301051
+      Items_7: -1018992540
+      Items_8: -859452454
+      Items_9: 1028031173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

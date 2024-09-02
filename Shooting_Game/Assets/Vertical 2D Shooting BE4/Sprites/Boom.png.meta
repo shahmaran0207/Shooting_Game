@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -132,7 +132,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boom 0
+      name: Boom_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,41 +140,41 @@ TextureImporter:
         width: 72
         height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c9a05dd8220a160800000000000000
-      internalID: 7034660610512690298
+      spriteID: fd17104890b99ff418c40a29561f16ef
+      internalID: 1594548114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 1
+      name: Boom_1
       rect:
         serializedVersion: 2
-        x: 73
-        y: 0
-        width: 72
-        height: 72
+        x: 74
+        y: 1
+        width: 70
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b54494b742858d480800000000000000
-      internalID: -8874246152023096229
+      spriteID: 5dc91f8c09d1a27428edfd06cb294309
+      internalID: -1384257601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boom 2
+      name: Boom_2
       rect:
         serializedVersion: 2
         x: 146
@@ -182,14 +182,14 @@ TextureImporter:
         width: 72
         height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68ebab8dae8e59a30800000000000000
-      internalID: 4221536321085816454
+      spriteID: 633c32cccc410914a854321c6b13c4a2
+      internalID: 1015479286
       vertices: []
       indices: 
       edges: []
@@ -205,9 +205,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boom 0: 7034660610512690298
-      Boom 1: -8874246152023096229
-      Boom 2: 4221536321085816454
+      Boom_0: 1594548114
+      Boom_1: -1384257601
+      Boom_2: 1015479286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

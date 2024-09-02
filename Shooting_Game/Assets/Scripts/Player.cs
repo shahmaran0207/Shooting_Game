@@ -7,8 +7,9 @@ public class Player : MonoBehaviour
     public float speed;
     public float maxShotDelay;
     public float curShotDelay;
-    public float power;
-
+    
+    public int power;
+    public int maxpower;
     public int life;
     public int score;
 
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
 
     public GameObject bulletObjA;
     public GameObject bulletObjB;
+    public GameObject BombEffect;
 
     public GameManager mamager;
 
@@ -141,6 +143,52 @@ public class Player : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(collision.gameObject);
         }
+
+        else if (collision.gameObject.tag == "Item")
+        {
+            Item item = collision.gameObject.GetComponent<Item>();
+
+            switch (item.type)
+            {
+                case "Coin":
+                    score += 1000;
+                    break;
+
+                case "Power":
+                    if (power == maxpower) score += 500;
+                    else power++;
+                    break;
+
+                case "Bomb":
+                    //1. 효과 보이게
+                    BombEffect.SetActive(true);
+                    Invoke("OffBoomEffect", 5);
+
+                    //2. 모든 적 삭제
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    for(int index=0; index<enemies.Length; index++)
+                    {
+                        Enemy enemyLogic=enemies[index].GetComponent<Enemy>();
+                        enemyLogic.OnHit(3000);
+                    }
+
+                    //3. 적 공격 제거
+                    GameObject[] bullets = GameObject.FindGameObjectsWithTag("Enemy Bullet");
+                    for (int index = 0; index < enemies.Length; index++)
+                    {
+                        Destroy(bullets[index]);
+                    }
+
+                    break;
+            }
+
+            Destroy(collision.gameObject);
+        }
+    }
+
+    void OffBoomEffect()
+    {
+        BombEffect.SetActive(false);
     }
 
     void OnTriggerExit2D(Collider2D collision)

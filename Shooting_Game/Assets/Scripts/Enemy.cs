@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
         curShotDelay += Time.deltaTime;
     }
 
-    void OnHit(int damage)
+    public void OnHit(int damage)
     {
         health -= damage;
         spriteRenderer.sprite = sprites[1];
