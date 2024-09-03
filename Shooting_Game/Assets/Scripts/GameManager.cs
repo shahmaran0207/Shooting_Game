@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public ObjectManager objmanager;
+
     public Transform[] spawnPoints;
 
     public float maxSpawnDelay;
@@ -13,12 +15,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject gameOverSet;
-    public GameObject[] enemyObjs;
+
+    public string[] enemyObjs;
 
     public Text scoreText;
 
     public Image[] lifeImage;
     public Image[] BombImage;
+
+    void Awake()
+    {
+        enemyObjs = new string[] { "EnemyEL", "EnemyL", "EnemyM", "EnemyS" };
+    }
 
     void Update()
     {
@@ -39,13 +47,13 @@ public class GameManager : MonoBehaviour
     {
         int ranEnemy = Random.Range(0, 3);
         int ranPoint = Random.Range(0, 9);
-        GameObject enemy= Instantiate(enemyObjs[ranEnemy],
-            spawnPoints[ranPoint].position,
-            spawnPoints[ranPoint].rotation);
+        GameObject enemy = objmanager.MakeObj(enemyObjs[ranEnemy]);
+        enemy.transform.position = spawnPoints[ranPoint].position;
 
         Rigidbody2D rigid=enemy.GetComponent<Rigidbody2D>();
         Enemy enemyLogic=enemy.GetComponent<Enemy>();
         enemyLogic.player = player;
+        enemyLogic.objectManager = objmanager;
 
         if(ranPoint == 5 || ranPoint==6)    //우측 스폰
         {
@@ -61,7 +69,6 @@ public class GameManager : MonoBehaviour
         {
             rigid.velocity = new Vector2(0, enemyLogic.speed*(-1));
         }
-
     }
 
     public void UpdateLifeIcon(int life)

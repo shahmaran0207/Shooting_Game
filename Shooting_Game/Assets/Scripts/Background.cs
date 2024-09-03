@@ -5,6 +5,7 @@ using UnityEngine;
 public class Background : MonoBehaviour
 {
     //parallx: 거리에 따른 상대적 속도를 활용한 기술
+    //오브젝트 풀링: 미리 생성해둔 풀에서 활성화 /비활성화로 사용
 
     public float speed;
 
@@ -23,8 +24,6 @@ public class Background : MonoBehaviour
     {
         Move();
         Scrolling();
-
-
     }
 
     void Move()

@@ -26,7 +26,9 @@ public class Player : MonoBehaviour
     public GameObject bulletObjB;
     public GameObject BombEffect;
 
-    public GameManager mamager;
+    public GameManager gameManager;
+
+    public ObjectManager objmanager;
 
     Animator anim;
 
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
         if (bomb == 0) return;
         bomb--;
         isBoomTime = true;
-        mamager.UpdateBombIcon(bomb);
+        gameManager.UpdateBombIcon(bomb);
 
         BombEffect.SetActive(true);
         Invoke("OffBoomEffect", 5f);
@@ -66,7 +68,7 @@ public class Player : MonoBehaviour
 
         for (int index = 0; index < enemies.Length; index++)
         {
-            Destroy(bullets[index]);
+            bullets[index].SetActive(false);
         }
     }
 
@@ -100,14 +102,19 @@ public class Player : MonoBehaviour
             case 1:
                 //제일 작은 총알
                 //Instantiate: 매개변수 오브젝트를 생성하는 함수
-                GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation);
+                GameObject bullet = objmanager.MakeObj("BulletPlayerA");
+                bullet.transform.position=transform.position;
+
                 Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
                 rigid.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
                 break;
 
             case 2:
-                GameObject bulletR = Instantiate(bulletObjA, transform.position+Vector3.right*0.1f, transform.rotation);
-                GameObject bulletL = Instantiate(bulletObjA, transform.position + Vector3.left * 0.1f, transform.rotation);
+                GameObject bulletR = objmanager.MakeObj("BulletPlayerA");
+                bulletR.transform.position = transform.position + Vector3.right * 0.1f;
+
+                GameObject bulletL = objmanager.MakeObj("BulletPlayerA");
+                bulletL.transform.position = transform.position + Vector3.left * 0.1f;
 
                 Rigidbody2D rigidR = bulletR.GetComponent<Rigidbody2D>();
                 Rigidbody2D rigidL = bulletL.GetComponent<Rigidbody2D>();
@@ -117,9 +124,13 @@ public class Player : MonoBehaviour
                 break;
 
             case 3:
-                GameObject bulletRR = Instantiate(bulletObjA, transform.position + Vector3.right * 0.25f, transform.rotation);
-                GameObject bulletCC = Instantiate(bulletObjB, transform.position, transform.rotation);
-                GameObject bulletLL = Instantiate(bulletObjA, transform.position + Vector3.left * 0.25f, transform.rotation);
+                GameObject bulletRR = objmanager.MakeObj("BulletPlayerA");
+                GameObject bulletCC = objmanager.MakeObj("BulletPlayerB");
+                GameObject bulletLL = objmanager.MakeObj("BulletPlayerA");
+
+                bulletRR.transform.position = transform.position + Vector3.right * 0.35f;
+                bulletCC.transform.position = transform.position;
+                bulletLL.transform.position = transform.position + Vector3.left * 0.35f;
 
                 Rigidbody2D rigidRR = bulletRR.GetComponent<Rigidbody2D>();
                 Rigidbody2D rigidCC = bulletCC.GetComponent<Rigidbody2D>();
@@ -166,13 +177,12 @@ public class Player : MonoBehaviour
             isHit = true;
 
             life--;
-            mamager.UpdateLifeIcon(life);
+            gameManager.UpdateLifeIcon(life);
 
-            if (life == 0) mamager.GameOver();
-            else mamager.RespawnPlayer();
+            if (life == 0) gameManager.GameOver();
+            else gameManager.RespawnPlayer();
 
             gameObject.SetActive(false);
-            Destroy(collision.gameObject);
         }
 
         else if (collision.gameObject.tag == "Item")
@@ -195,13 +205,13 @@ public class Player : MonoBehaviour
                     else
                     {
                         bomb++;
-                        mamager.UpdateBombIcon(bomb);
+                        gameManager.UpdateBombIcon(bomb);
                     }
 
                     break;
             }
 
-            Destroy(collision.gameObject);
+            gameObject.SetActive(false);
         }
     }
 
