@@ -99,6 +99,7 @@ public class Enemy : MonoBehaviour
 
     public void OnHit(int damage)
     {
+        if (health <= 0) return;
         health -= damage;
         spriteRenderer.sprite = sprites[1];
 
@@ -108,6 +109,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+
             Player playerLogic = player.GetComponent<Player>();
             playerLogic.score += enemyscore;
 
@@ -116,8 +118,8 @@ public class Enemy : MonoBehaviour
             int ran = Random.Range(0, 10);
             if (ran < 3) Debug.Log("Not Item");
             else if (ran < 6) Instantiate(itemCoin, transform.position, itemCoin.transform.rotation);
-            else if (ran < 7) Instantiate(itemBomb, transform.position, itemBomb.transform.rotation);
-            else if (ran < 8) Instantiate(itemPower, transform.position, itemPower.transform.rotation);
+            else if (ran < 8) Instantiate(itemBomb, transform.position, itemBomb.transform.rotation);
+            else if (ran < 9) Instantiate(itemPower, transform.position, itemPower.transform.rotation);
         }
     }
 
