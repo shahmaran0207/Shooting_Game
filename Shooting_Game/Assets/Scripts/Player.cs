@@ -183,6 +183,7 @@ public class Player : MonoBehaviour
             else gameManager.RespawnPlayer();
 
             gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
 
         else if (collision.gameObject.tag == "Item")
@@ -211,7 +212,7 @@ public class Player : MonoBehaviour
                     break;
             }
 
-            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
     }
 
@@ -242,5 +243,4 @@ public class Player : MonoBehaviour
             }
         }
     }
-
 }

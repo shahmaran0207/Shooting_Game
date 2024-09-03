@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +36,7 @@ public class ObjectManager : MonoBehaviour
 
     void Awake()
     {
+
         enemyEL = new GameObject[10];
         enemyL = new GameObject[10];
         enemyM = new GameObject[20];

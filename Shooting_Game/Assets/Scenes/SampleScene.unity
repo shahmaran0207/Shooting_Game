@@ -951,7 +951,8 @@ MonoBehaviour:
   bulletObjA: {fileID: 8703690168762612057, guid: 197e1ea2c8cc11c4e8e97f8d77b4cf4f, type: 3}
   bulletObjB: {fileID: 2521689353840106853, guid: 6b435c25296936947a66a543abf2d972, type: 3}
   BombEffect: {fileID: 1463148040}
-  mamager: {fileID: 438968369}
+  gameManager: {fileID: 438968369}
+  objmanager: {fileID: 1907148543}
 --- !u!212 &278680250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1224,6 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f3a6a4e3ae2a14a80873d13079bca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objmanager: {fileID: 1907148543}
   spawnPoints:
   - {fileID: 1251836877}
   - {fileID: 502873364}
@@ -1239,10 +1241,10 @@ MonoBehaviour:
   player: {fileID: 278680248}
   gameOverSet: {fileID: 287016631}
   enemyObjs:
-  - {fileID: 5008004654112166844, guid: 7cedcd32539ebca43bdf1d8980734230, type: 3}
-  - {fileID: 1585850991173584086, guid: 7c97d1a0200e9ab4a8b6f7c95ded1f73, type: 3}
-  - {fileID: 1588233508767082969, guid: 9d0ebc2d496db5a4190a95ad91c0526d, type: 3}
-  - {fileID: 8605116612986855562, guid: 0e46e928bd914034d867d1a4101d62e7, type: 3}
+  - 
+  - 
+  - 
+  - 
   scoreText: {fileID: 1257767875}
   lifeImage:
   - {fileID: 1295753847}

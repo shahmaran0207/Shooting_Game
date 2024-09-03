@@ -49,18 +49,21 @@ public class Enemy : MonoBehaviour
 
         if (enemyName == "S")
         {
-            GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation);
+            GameObject bullet = objectManager.MakeObj("BulletEnemyA");
+            bullet.transform.position = transform.position;
+
             Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
-
             Vector3 dirVec = player.transform.position - transform.position;
-
             rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
         }
 
         else if (enemyName == "L")
         {
-            GameObject bulletR = Instantiate(bulletObjB, transform.position+Vector3.right*0.3f, transform.rotation);
-            GameObject bulletL = Instantiate(bulletObjB, transform.position + Vector3.left * 0.3f, transform.rotation);
+            GameObject bulletR = objectManager.MakeObj("BulletEnemyB");
+            GameObject bulletL = objectManager.MakeObj("BulletEnemyB");
+
+            bulletR.transform.position = transform.position + Vector3.right * 0.3f;
+            bulletL.transform.position = transform.position + Vector3.left * 0.3f;
 
             Rigidbody2D rigidR = bulletR.GetComponent<Rigidbody2D>();
             Rigidbody2D rigidL = bulletL.GetComponent<Rigidbody2D>();
@@ -73,9 +76,13 @@ public class Enemy : MonoBehaviour
         }
         else if (enemyName == "EL")
         {
-            GameObject bulletR = Instantiate(bulletObjC, transform.position + Vector3.right * 0.3f, transform.rotation);
-            GameObject bulletC = Instantiate(bulletObjC, transform.position, transform.rotation);
-            GameObject bulletL = Instantiate(bulletObjC, transform.position + Vector3.left * 0.3f, transform.rotation);
+            GameObject bulletR = objectManager.MakeObj("BulletEnemyC");
+            GameObject bulletC = objectManager.MakeObj("BulletEnemyC");
+            GameObject bulletL = objectManager.MakeObj("BulletEnemyC");
+
+            bulletR.transform.position = transform.position + Vector3.right * 0.3f;
+            bulletC.transform.position = transform.position;
+            bulletL.transform.position = transform.position + Vector3.left * 0.3f;
 
             Rigidbody2D rigidR = bulletR.GetComponent<Rigidbody2D>();
             Rigidbody2D rigidC = bulletC.GetComponent<Rigidbody2D>();
@@ -101,6 +108,7 @@ public class Enemy : MonoBehaviour
     public void OnHit(int damage)
     {
         if (health <= 0) return;
+
         health -= damage;
         spriteRenderer.sprite = sprites[1];
 
@@ -110,7 +118,6 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-
             Player playerLogic = player.GetComponent<Player>();
             playerLogic.score += enemyscore;
 
@@ -118,9 +125,22 @@ public class Enemy : MonoBehaviour
             
             int ran = Random.Range(0, 10);
             if (ran < 3) Debug.Log("Not Item");
-            else if (ran < 6) Instantiate(itemCoin, transform.position, itemCoin.transform.rotation);
-            else if (ran < 8) Instantiate(itemBomb, transform.position, itemBomb.transform.rotation);
-            else if (ran < 9) Instantiate(itemPower, transform.position, itemPower.transform.rotation);
+            else if (ran < 6)
+            {
+                objectManager.MakeObj("ItemCoin");
+                itemCoin.transform.position = transform.position;
+            }
+
+            else if (ran < 8)
+            {
+                objectManager.MakeObj("ItemBomb");
+                itemBomb.transform.position = transform.position;
+            }
+            else if (ran < 9)
+            {
+                objectManager.MakeObj("ItemPower");
+                itemPower.transform.position = transform.position;
+            }
 
             gameObject.SetActive(false);
         }
@@ -134,12 +154,12 @@ public class Enemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "BorderBullet") gameObject.SetActive(false);
+
         else if (collision.gameObject.tag == "PlayerBullet")
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             OnHit(bullet.damage);
-
-            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
     }
 }
