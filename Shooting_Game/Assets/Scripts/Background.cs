@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
+    //parallx: 거리에 따른 상대적 속도를 활용한 기술
+
     public float speed;
 
     public int startIndex;
@@ -19,11 +21,22 @@ public class Background : MonoBehaviour
     }
     void Update()
     {
-        Vector3 curPos = transform.position;
-        Vector3 nextPost=Vector3.down*speed*Time.deltaTime;
-        transform.position=curPos+nextPost;
+        Move();
+        Scrolling();
 
-        if (sprites[endIndex].position.y < viewHeight*(-1))
+
+    }
+
+    void Move()
+    {
+        Vector3 curPos = transform.position;
+        Vector3 nextPost = Vector3.down * speed * Time.deltaTime;
+        transform.position = curPos + nextPost;
+    }
+
+    void Scrolling()
+    {
+        if (sprites[endIndex].position.y < viewHeight * (-1))
         {
             Vector3 backSpritePos = sprites[startIndex].localPosition;
             Vector3 frontSpritePos = sprites[endIndex].localPosition;
@@ -32,7 +45,7 @@ public class Background : MonoBehaviour
 
             int startIndexSave = startIndex;
             startIndex = endIndex;
-            endIndex = startIndexSave - 1 == -1 ? sprites.Length - 1: startIndexSave - 1;
+            endIndex = startIndexSave - 1 == -1 ? sprites.Length - 1 : startIndexSave - 1;
         }
     }
 }
