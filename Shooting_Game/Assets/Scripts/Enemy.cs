@@ -37,6 +37,25 @@ public class Enemy : MonoBehaviour
     */
     }
 
+    void OnEnable()     // onEnable(): 컴포넌트가 활성화 될 때 호출되는 생명주기 함수
+    {
+        switch (enemyName)
+        {
+            case "EL":
+                health = 30;
+                break;
+            case "L":
+                health = 20;
+                break;
+            case "M":
+                health = 10;
+                break;
+            case "S":
+                health = 5;
+                break;
+        }
+    }
+
     void Update()
     {
         Fire();
@@ -129,20 +148,33 @@ public class Enemy : MonoBehaviour
             {
                 objectManager.MakeObj("ItemCoin");
                 itemCoin.transform.position = transform.position;
+                
+                Rigidbody2D rigid = itemCoin.GetComponent<Rigidbody2D>();
+                rigid = GetComponent<Rigidbody2D>();
+                rigid.velocity = Vector2.down * 1.5f;
             }
 
             else if (ran < 8)
             {
                 objectManager.MakeObj("ItemBomb");
                 itemBomb.transform.position = transform.position;
+
+                Rigidbody2D rigid = itemBomb.GetComponent<Rigidbody2D>();
+                rigid = GetComponent<Rigidbody2D>();
+                rigid.velocity = Vector2.down * 1.5f;
             }
             else if (ran < 9)
             {
                 objectManager.MakeObj("ItemPower");
                 itemPower.transform.position = transform.position;
+
+                Rigidbody2D rigid = itemPower.GetComponent<Rigidbody2D>();
+                rigid = GetComponent<Rigidbody2D>();
+                rigid.velocity = Vector2.down * 1.5f;
             }
 
             gameObject.SetActive(false);
+            transform.rotation = Quaternion.identity;       //Quaternion.identity: 기본 회전값 -> 0
         }
     }
 
@@ -153,7 +185,11 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BorderBullet") gameObject.SetActive(false);
+        if (collision.gameObject.tag == "BorderBullet")
+        {
+            gameObject.SetActive(false);
+            transform.rotation = Quaternion.identity;
+        }
 
         else if (collision.gameObject.tag == "PlayerBullet")
         {
