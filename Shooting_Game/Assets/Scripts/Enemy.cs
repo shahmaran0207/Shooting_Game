@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     public GameObject bulletObjA;
     public GameObject bulletObjB;
     public GameObject bulletObjC;
+    public GameObject itemCoin;
+    public GameObject itemPower;
+    public GameObject itemBomb;
     public GameObject player;
 
     SpriteRenderer spriteRenderer;
@@ -108,7 +111,13 @@ public class Enemy : MonoBehaviour
             Player playerLogic = player.GetComponent<Player>();
             playerLogic.score += enemyscore;
 
+            //아이템 드롭 -> 랜덤으로 결정
             Destroy(gameObject);
+            int ran = Random.Range(0, 10);
+            if (ran < 3) Debug.Log("Not Item");
+            else if (ran < 6) Instantiate(itemCoin, transform.position, itemCoin.transform.rotation);
+            else if (ran < 7) Instantiate(itemBomb, transform.position, itemBomb.transform.rotation);
+            else if (ran < 8) Instantiate(itemPower, transform.position, itemPower.transform.rotation);
         }
     }
 

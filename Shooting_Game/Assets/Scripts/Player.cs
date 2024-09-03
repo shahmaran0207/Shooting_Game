@@ -10,14 +10,17 @@ public class Player : MonoBehaviour
     
     public int power;
     public int maxpower;
+    public int maxbomb;
     public int life;
     public int score;
+    public int bomb;
 
     public bool isHit;
     public bool isTouchTop;
     public bool isTouchBottom;
     public bool isTouchLeft;
     public bool isTouchRight;
+    public bool isBoomTime;
 
     public GameObject bulletObjA;
     public GameObject bulletObjB;
@@ -37,6 +40,34 @@ public class Player : MonoBehaviour
         Move();
         Fire();
         Reload();
+        boom();
+    }
+
+    void boom()
+    {
+        if (!Input.GetButton("Fire2")) return;
+        if (isBoomTime) return;
+        if (bomb == 0) return;
+        bomb--;
+        isBoomTime = true;
+        mamager.UpdateBombIcon(bomb);
+
+        BombEffect.SetActive(true);
+        Invoke("OffBoomEffect", 5f);
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int index = 0; index < enemies.Length; index++)
+        {
+            Enemy enemyLogic = enemies[index].GetComponent<Enemy>();
+            enemyLogic.OnHit(3000);
+        }
+
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Enemy Bullet");
+
+        for (int index = 0; index < enemies.Length; index++)
+        {
+            Destroy(bullets[index]);
+        }
     }
 
     void Move()
@@ -160,23 +191,11 @@ public class Player : MonoBehaviour
                     break;
 
                 case "Bomb":
-                    //1. 효과 보이게
-                    BombEffect.SetActive(true);
-                    Invoke("OffBoomEffect", 5);
-
-                    //2. 모든 적 삭제
-                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                    for(int index=0; index<enemies.Length; index++)
+                    if (bomb == maxbomb) score += 500;
+                    else
                     {
-                        Enemy enemyLogic=enemies[index].GetComponent<Enemy>();
-                        enemyLogic.OnHit(3000);
-                    }
-
-                    //3. 적 공격 제거
-                    GameObject[] bullets = GameObject.FindGameObjectsWithTag("Enemy Bullet");
-                    for (int index = 0; index < enemies.Length; index++)
-                    {
-                        Destroy(bullets[index]);
+                        bomb++;
+                        mamager.UpdateBombIcon(bomb);
                     }
 
                     break;
@@ -189,6 +208,7 @@ public class Player : MonoBehaviour
     void OffBoomEffect()
     {
         BombEffect.SetActive(false);
+        isBoomTime = false;
     }
 
     void OnTriggerExit2D(Collider2D collision)

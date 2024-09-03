@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] enemyObjs;
     public Transform[] spawnPoints;
 
     public float maxSpawnDelay;
@@ -14,9 +13,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject gameOverSet;
+    public GameObject[] enemyObjs;
 
     public Text scoreText;
+
     public Image[] lifeImage;
+    public Image[] BombImage;
 
     void Update()
     {
@@ -72,6 +74,19 @@ public class GameManager : MonoBehaviour
         for (int index=0; index < life; index++)
         {
             lifeImage[index].color = new Color(1, 1, 1, 1);
+        }
+    }
+
+    public void UpdateBombIcon(int bomb)
+    {
+        for (int index = 0; index < 3; index++)
+        {
+            BombImage[index].color = new Color(1, 1, 1, 0);
+        }
+
+        for (int index = 0; index < bomb; index++)
+        {
+            BombImage[index].color = new Color(1, 1, 1, 1);
         }
     }
 
