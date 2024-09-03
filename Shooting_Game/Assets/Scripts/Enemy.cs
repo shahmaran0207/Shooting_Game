@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         switch (enemyName)
         {
             case "EL":
-                health = 30;
+                health = 35;
                 break;
             case "L":
                 health = 20;
@@ -146,31 +146,19 @@ public class Enemy : MonoBehaviour
             if (ran < 3) Debug.Log("Not Item");
             else if (ran < 6)
             {
-                objectManager.MakeObj("ItemCoin");
+                GameObject itemCoin=objectManager.MakeObj("ItemCoin");
                 itemCoin.transform.position = transform.position;
-                
-                Rigidbody2D rigid = itemCoin.GetComponent<Rigidbody2D>();
-                rigid = GetComponent<Rigidbody2D>();
-                rigid.velocity = Vector2.down * 1.5f;
             }
 
             else if (ran < 8)
             {
-                objectManager.MakeObj("ItemBomb");
+                GameObject itemBomb = objectManager.MakeObj("ItemBomb");
                 itemBomb.transform.position = transform.position;
-
-                Rigidbody2D rigid = itemBomb.GetComponent<Rigidbody2D>();
-                rigid = GetComponent<Rigidbody2D>();
-                rigid.velocity = Vector2.down * 1.5f;
             }
             else if (ran < 9)
             {
-                objectManager.MakeObj("ItemPower");
+                GameObject itemPower=objectManager.MakeObj("ItemPower");
                 itemPower.transform.position = transform.position;
-
-                Rigidbody2D rigid = itemPower.GetComponent<Rigidbody2D>();
-                rigid = GetComponent<Rigidbody2D>();
-                rigid.velocity = Vector2.down * 1.5f;
             }
 
             gameObject.SetActive(false);

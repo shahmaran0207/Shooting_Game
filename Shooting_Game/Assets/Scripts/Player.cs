@@ -57,18 +57,64 @@ public class Player : MonoBehaviour
         BombEffect.SetActive(true);
         Invoke("OffBoomEffect", 5f);
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int index = 0; index < enemies.Length; index++)
+        GameObject[] enemiesEL = objmanager.GetPool("EnemyEL");
+        GameObject[] enemiesL = objmanager.GetPool("EnemyL");
+        GameObject[] enemiesM = objmanager.GetPool("EnemyM");
+        GameObject[] enemiesS = objmanager.GetPool("EnemyS");
+
+        for (int index = 0; index < enemiesEL.Length; index++)
         {
-            Enemy enemyLogic = enemies[index].GetComponent<Enemy>();
-            enemyLogic.OnHit(3000);
+            if (enemiesEL[index].activeSelf)
+            {
+                Enemy enemyLogic = enemiesEL[index].GetComponent<Enemy>();
+                enemyLogic.OnHit(3000);
+            }
         }
 
-        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Enemy Bullet");
-
-        for (int index = 0; index < enemies.Length; index++)
+        for (int index = 0; index < enemiesL.Length; index++)
         {
-            bullets[index].SetActive(false);
+            if (enemiesL[index].activeSelf)
+            {
+                Enemy enemyLogic = enemiesL[index].GetComponent<Enemy>();
+                enemyLogic.OnHit(3000);
+            }
+        }
+
+        for (int index = 0; index < enemiesM.Length; index++)
+        {
+            if (enemiesM[index].activeSelf)
+            {
+                Enemy enemyLogic = enemiesM[index].GetComponent<Enemy>();
+                enemyLogic.OnHit(3000);
+            }
+        }
+
+        for (int index = 0; index < enemiesS.Length; index++)
+        {
+            if (enemiesS[index].activeSelf)
+            {
+                Enemy enemyLogic = enemiesS[index].GetComponent<Enemy>();
+                enemyLogic.OnHit(3000);
+            }
+        }
+
+        GameObject[] bulletsA = GameObject.FindGameObjectsWithTag("BulletEnemyA");
+        GameObject[] bulletsB = GameObject.FindGameObjectsWithTag("BulletEnemyB");
+
+        for (int index = 0; index < bulletsA.Length; index++)
+        {
+            if (bulletsA[index].activeSelf)
+            {
+                bulletsA[index].SetActive(false);
+            }
+        }
+
+        for (int index = 0; index < bulletsB.Length; index++)
+        {
+            if (bulletsB[index].activeSelf)
+            {
+                bulletsB[index].SetActive(false);
+            }
         }
     }
 
