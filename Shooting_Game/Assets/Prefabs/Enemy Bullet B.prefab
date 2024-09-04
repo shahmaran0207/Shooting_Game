@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  isRotate: 1
 --- !u!58 &2548576762361658766
 CircleCollider2D:
   m_ObjectHideFlags: 0

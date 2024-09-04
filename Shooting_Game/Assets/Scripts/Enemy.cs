@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
     SpriteRenderer spriteRenderer;
     // Rigidbody2D rigid;
 
+    Animator anim;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,6 +37,8 @@ public class Enemy : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.down * speed;      //velocity: 속력
     */
+
+        if(enemyName=="B") anim=GetComponent<Animator>();
     }
 
     void OnEnable()     // onEnable(): 컴포넌트가 활성화 될 때 호출되는 생명주기 함수
@@ -55,6 +59,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (enemyName == "B") return;
         Fire();
         Reload();
     }
@@ -104,11 +109,18 @@ public class Enemy : MonoBehaviour
         if (health <= 0) return;
 
         health -= damage;
-        spriteRenderer.sprite = sprites[1];
+        if (enemyName == "B")
+        {
+            anim.SetTrigger("OnHit");
+        }
+        else
+        {
+            spriteRenderer.sprite = sprites[1];
 
-        //Invoke: 시간차를 두기 위해 사용
-        //※ 단, 함수 이름을 아래처럼 문자열로 사용해야 함!
-        Invoke("ReturnSprite", 0.1f);
+            //Invoke: 시간차를 두기 위해 사용
+            //※ 단, 함수 이름을 아래처럼 문자열로 사용해야 함!
+            Invoke("ReturnSprite", 0.1f);
+        }
 
         if (health <= 0)
         {
@@ -116,8 +128,8 @@ public class Enemy : MonoBehaviour
             playerLogic.score += enemyscore;
 
             //아이템 드롭 -> 랜덤으로 결정
-            
-            int ran = Random.Range(0, 10);
+
+            int ran = enemyName == "B" ? 0 : Random.Range(0, 10);
             if (ran < 3) Debug.Log("Not Item");
             else if (ran < 6)
             {
@@ -148,7 +160,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BorderBullet")
+        if (collision.gameObject.tag == "BorderBullet" && enemyName !="B")
         {
             gameObject.SetActive(false);
             transform.rotation = Quaternion.identity;
