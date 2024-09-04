@@ -3693,7 +3693,7 @@ MonoBehaviour:
   bulletEnemyAPrefab: {fileID: 2521689353840106853, guid: 5e00149bb5da708478aebc65d8fa0261, type: 3}
   bulletEnemyBPrefab: {fileID: 2521689353840106853, guid: b17eab069f3495648aec3ce28f765250, type: 3}
   bulletEnemyCPrefab: {fileID: 2521689353840106853, guid: 935e6a16823d02143b89338c80d2058b, type: 3}
-  bulletFollowerAPrefab: {fileID: 8703690168762612057, guid: c10dbe8acd484984490dbe25465789fb, type: 3}
+  bulletFollowerPrefab: {fileID: 8703690168762612057, guid: c10dbe8acd484984490dbe25465789fb, type: 3}
 --- !u!4 &1907148544
 Transform:
   m_ObjectHideFlags: 0
@@ -3857,6 +3857,9 @@ MonoBehaviour:
   maxShotDelay: 2
   curShotDelay: 0
   objectManager: {fileID: 1907148543}
+  followPos: {x: 0, y: 0, z: 0}
+  parent: {fileID: 278680251}
+  followDelay: 0
 --- !u!212 &2047964944
 SpriteRenderer:
   m_ObjectHideFlags: 0
