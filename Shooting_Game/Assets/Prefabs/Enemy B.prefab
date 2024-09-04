@@ -187,6 +187,9 @@ MonoBehaviour:
   enemyName: B
   enemyscore: 3000
   health: 10000
+  patternIndex: -1
+  curPatternCount: 0
+  maxPatternCount: 0400000002000000630000000a000000
   speed: 1.5
   maxShotDelay: 0
   curShotDelay: 0
