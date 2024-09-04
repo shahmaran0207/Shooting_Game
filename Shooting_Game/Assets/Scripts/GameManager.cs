@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;                     //파일 읽기 위한 라이브러리
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -73,10 +74,9 @@ public class GameManager : MonoBehaviour
     {
         curSpawnDelay += Time.deltaTime;
 
-        if(curSpawnDelay > nextSpawnDelay)
+        if(curSpawnDelay > nextSpawnDelay && !spawnEnd)
         {
             SpawnEnemy();
-            nextSpawnDelay = Random.Range(0.5f, 3f); //RandomRange는 더 이상 사용하지 않는 함수임!
             curSpawnDelay = 0;
         }
 
@@ -86,22 +86,35 @@ public class GameManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int ranEnemy = Random.Range(0, 3);
-        int ranPoint = Random.Range(0, 9);
-        GameObject enemy = objmanager.MakeObj(enemyObjs[ranEnemy]);
-        enemy.transform.position = spawnPoints[ranPoint].position;
+        int enemyIndex = 0;
+        switch (spawnList[spawnIndex].type)
+        {
+            case "S":
+                enemyIndex = 0;
+                break;
+            case "M":
+                enemyIndex = 1;
+                break;
+            case "L":
+                enemyIndex = 2;
+                break;
+        }
+
+        int enemyPoint = spawnList[spawnIndex].point;
+        GameObject enemy = objmanager.MakeObj(enemyObjs[enemyIndex]);
+        enemy.transform.position = spawnPoints[enemyPoint].position;
 
         Rigidbody2D rigid=enemy.GetComponent<Rigidbody2D>();
         Enemy enemyLogic=enemy.GetComponent<Enemy>();
         enemyLogic.player = player;
         enemyLogic.objectManager = objmanager;
 
-        if(ranPoint == 5 || ranPoint==6)    //우측 스폰
+        if(enemyPoint == 5 || enemyPoint == 6)    //우측 스폰
         {
             enemy.transform.Rotate(Vector3.back * 90);      //Vector3에서 회전은 front or Back
             rigid.velocity = new Vector2(enemyLogic.speed*(-1), -1);
         }
-        else if(ranPoint==7 || ranPoint==8) //좌측 스폰
+        else if(enemyPoint == 7 || enemyPoint == 8) //좌측 스폰
         {
             enemy.transform.Rotate(Vector3.forward * 90);
             rigid.velocity = new Vector2(enemyLogic.speed, -1);
@@ -110,6 +123,17 @@ public class GameManager : MonoBehaviour
         {
             rigid.velocity = new Vector2(0, enemyLogic.speed*(-1));
         }
+
+        //리스폰 인덱스 증가
+        spawnIndex++;
+        if (spawnIndex == spawnList.Count)      //리스트 개수 세는 것은 Count
+        {
+            spawnEnd = true;
+            return;
+        }
+
+        //다음 리스폰 딜레이 갱신
+        nextSpawnDelay = spawnList[spawnIndex].delay;
     }
 
     public void UpdateLifeIcon(int life)
