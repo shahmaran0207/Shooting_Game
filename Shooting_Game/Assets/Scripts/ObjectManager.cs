@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    public GameObject EnemyBrefab;
     public GameObject EnemyLPrefab;
     public GameObject EnemyMPrefab;
     public GameObject EnemySPrefab;
@@ -18,6 +19,7 @@ public class ObjectManager : MonoBehaviour
     public GameObject bulletBossBPrefab;
     public GameObject bulletFollowerPrefab;
 
+    GameObject[] enemyB;
     GameObject[] enemyL;
     GameObject[] enemyM;
     GameObject[] enemyS;
@@ -38,6 +40,7 @@ public class ObjectManager : MonoBehaviour
     void Awake()
     {
 
+        enemyB = new GameObject[10];
         enemyL = new GameObject[10];
         enemyM = new GameObject[20];
         enemyS = new GameObject[30];
@@ -59,6 +62,12 @@ public class ObjectManager : MonoBehaviour
 
     void Generate()
     {
+        for (int index = 0; index < enemyB.Length; index++)
+        {
+            enemyB[index] = Instantiate(EnemyBrefab);
+            enemyB[index].SetActive(false);
+        }
+
         for (int index = 0; index < enemyL.Length; index++)
         {
             enemyL[index] = Instantiate(EnemyLPrefab);
@@ -134,6 +143,10 @@ public class ObjectManager : MonoBehaviour
     {
         switch (type)
         {
+            case "EnemyB":
+                targetPool = enemyB;
+                break;
+
             case "EnemyL":
                 targetPool = enemyL;
                 break;
@@ -202,6 +215,10 @@ public class ObjectManager : MonoBehaviour
     {
         switch (type)
         {
+            case "EnemyB":
+                targetPool = enemyB;
+                break;
+
             case "EnemyL":
                 targetPool = enemyL;
                 break;
