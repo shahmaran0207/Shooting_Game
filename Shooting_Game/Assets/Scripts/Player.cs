@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public bool isTouchLeft;
     public bool isTouchRight;
     public bool isBoomTime;
+    public bool isRespawnTime;
 
     public GameObject bulletObjA;
     public GameObject bulletObjB;
@@ -32,11 +33,43 @@ public class Player : MonoBehaviour
 
     public GameObject[] followers;
 
+    SpriteRenderer spriteRenderer;
+
     Animator anim;
+
+    void OnEnable()
+    {
+        Unbeatable();
+        Invoke("Unbeatable", 3);
+    }
+
+    void Unbeatable()
+    {
+        isRespawnTime = !isRespawnTime;
+        if (isRespawnTime)
+        {
+            isRespawnTime = true;
+            spriteRenderer.color = new Color(1, 1, 1, 0.5f);
+            for(int index=0; index<followers.Length; index++)
+            {
+                followers[index].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+            }
+        }
+        else
+        {
+            isRespawnTime = false;
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+            for (int index = 0; index < followers.Length; index++)
+            {
+                followers[index].GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+        }
+    }
 
     void Awake()
     {
         anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -211,6 +244,7 @@ public class Player : MonoBehaviour
         }
         else if(collision.gameObject.tag=="Enemy" || collision.gameObject.tag == "Enemy Bullet")
         {
+            if (isRespawnTime) return;
             if (isHit) return;
             isHit = true;
 

@@ -89,17 +89,17 @@ public class GameManager : MonoBehaviour
         int enemyIndex = 0;
         switch (spawnList[spawnIndex].type)
         {
-            case "B":
-                enemyIndex = 3;
-                break;
             case "S":
-                enemyIndex = 0;
-                break;
-            case "M":
                 enemyIndex = 1;
                 break;
-            case "L":
+            case "M":
                 enemyIndex = 2;
+                break;
+            case "L":
+                enemyIndex = 3;
+                break;
+            case "B":
+                enemyIndex = 4;
                 break;
         }
 
