@@ -35,13 +35,15 @@ public class Follower : MonoBehaviour
     void Watch()
     {
         //Input Pos
-        parentPos.Enqueue(parent.position);
+        if(!parentPos.Contains(parent.position))
+            parentPos.Enqueue(parent.position);
 
-        if (parentPos.Count > followDelay)
-        {
             //Output Pos
+        if (parentPos.Count > followDelay)
             followPos = parentPos.Dequeue();
-        }
+        
+        else if (parentPos.Count < followDelay)
+            followPos = parent.position;
     }
     void Follow()
     {

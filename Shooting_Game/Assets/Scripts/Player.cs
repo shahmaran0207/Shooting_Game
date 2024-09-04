@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
 
     public ObjectManager objmanager;
 
+    public GameObject[] followers;
+
     Animator anim;
 
     void Awake()
@@ -160,7 +162,7 @@ public class Player : MonoBehaviour
                 rigidL.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
                 break;
 
-            case 3:
+            default:
                 GameObject bulletRR = objmanager.MakeObj("BulletPlayerA");
                 GameObject bulletCC = objmanager.MakeObj("BulletPlayerB");
                 GameObject bulletLL = objmanager.MakeObj("BulletPlayerA");
@@ -177,7 +179,6 @@ public class Player : MonoBehaviour
                 rigidCC.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
                 rigidLL.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
                 break;
-
         }
 
         curShotDelay = 0;
@@ -235,7 +236,11 @@ public class Player : MonoBehaviour
 
                 case "Power":
                     if (power == maxpower) score += 500;
-                    else power++;
+                    else
+                    {
+                        power++;
+                        AddFollower();
+                    }
                     break;
 
                 case "Bomb":
@@ -251,6 +256,16 @@ public class Player : MonoBehaviour
 
             collision.gameObject.SetActive(false);
         }
+    }
+
+    void AddFollower()
+    {
+        if (power == 4)
+            followers[0].SetActive(true);
+        else if (power == 5)
+            followers[1].SetActive(true);
+        else if (power == 6)
+            followers[2].SetActive(true);
     }
 
     void OffBoomEffect()
