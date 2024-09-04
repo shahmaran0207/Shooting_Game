@@ -41,9 +41,6 @@ public class Enemy : MonoBehaviour
     {
         switch (enemyName)
         {
-            case "EL":
-                health = 35;
-                break;
             case "L":
                 health = 20;
                 break;
@@ -92,28 +89,6 @@ public class Enemy : MonoBehaviour
 
             rigidR.AddForce(dirVecR.normalized * 4, ForceMode2D.Impulse);
             rigidL.AddForce(dirVecL.normalized * 4, ForceMode2D.Impulse);
-        }
-        else if (enemyName == "EL")
-        {
-            GameObject bulletR = objectManager.MakeObj("BulletEnemyC");
-            GameObject bulletC = objectManager.MakeObj("BulletEnemyC");
-            GameObject bulletL = objectManager.MakeObj("BulletEnemyC");
-
-            bulletR.transform.position = transform.position + Vector3.right * 0.3f;
-            bulletC.transform.position = transform.position;
-            bulletL.transform.position = transform.position + Vector3.left * 0.3f;
-
-            Rigidbody2D rigidR = bulletR.GetComponent<Rigidbody2D>();
-            Rigidbody2D rigidC = bulletC.GetComponent<Rigidbody2D>();
-            Rigidbody2D rigidL = bulletL.GetComponent<Rigidbody2D>();
-
-            Vector3 dirVecR = player.transform.position - (transform.position + Vector3.right * 0.3f);
-            Vector3 dirVecC = player.transform.position - transform.position;
-            Vector3 dirVecL = player.transform.position - (transform.position + Vector3.left * 0.3f);
-
-            rigidR.AddForce(dirVecR.normalized * 5, ForceMode2D.Impulse);
-            rigidC.AddForce(dirVecC.normalized * 5, ForceMode2D.Impulse);
-            rigidL.AddForce(dirVecL.normalized * 5, ForceMode2D.Impulse);
         }
 
         curShotDelay = 0;

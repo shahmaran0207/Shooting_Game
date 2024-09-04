@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;                     //파일 읽기 위한 라이브러리
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public Transform[] spawnPoints;
 
-    public float maxSpawnDelay;
+    public float nextSpawnDelay;
     public float curSpawnDelay;
 
     public GameObject player;
@@ -23,19 +24,59 @@ public class GameManager : MonoBehaviour
     public Image[] lifeImage;
     public Image[] BombImage;
 
+    public List<Spawn> spawnList;
+
+    public int spawnIndex;
+
+    public bool spawnEnd;
+
     void Awake()
     {
-        enemyObjs = new string[] { "EnemyEL", "EnemyL", "EnemyM", "EnemyS" };
+        spawnList = new List<Spawn>();
+        enemyObjs = new string[] {"EnemyL", "EnemyM", "EnemyS" };
+        ReadSpawnFile();
+    }
+
+    void ReadSpawnFile()
+    {
+        //1. 변수 초기화
+        spawnList.Clear();  //clear: 리스트 비우는 함수
+        spawnIndex = 0;
+        spawnEnd = false;
+
+        //2. 리스폰 파일 읽기
+        //TextAsset: 텍스트 파일 에셋 클래스
+        TextAsset textFile = Resources.Load("Stage 0") as TextAsset;
+        StringReader stringreader = new StringReader(textFile.text);
+
+        while(stringreader != null)
+        {
+            string line=stringreader.ReadLine();
+            Debug.Log(line);
+            if(line==null) break;
+
+            //3. 리스폰 데이터 생성
+            Spawn spawnData = new Spawn();
+            spawnData.delay = float.Parse(line.Split(',')[0]);
+            spawnData.type = line.Split(',')[1];
+            spawnData.point = int.Parse(line.Split(',')[2]);
+            spawnList.Add(spawnData);
+        }
+
+        //4. 텍스트 파일 닫기
+        stringreader.Close();
+
+        nextSpawnDelay = spawnList[0].delay;
     }
 
     void Update()
     {
         curSpawnDelay += Time.deltaTime;
 
-        if(curSpawnDelay > maxSpawnDelay)
+        if(curSpawnDelay > nextSpawnDelay)
         {
             SpawnEnemy();
-            maxSpawnDelay = Random.Range(0.5f, 3f); //RandomRange는 더 이상 사용하지 않는 함수임!
+            nextSpawnDelay = Random.Range(0.5f, 3f); //RandomRange는 더 이상 사용하지 않는 함수임!
             curSpawnDelay = 0;
         }
 

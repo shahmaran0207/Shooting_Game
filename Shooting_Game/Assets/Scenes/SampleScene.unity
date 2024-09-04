@@ -1244,7 +1244,6 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
   scoreText: {fileID: 1257767875}
   lifeImage:
   - {fileID: 1295753847}

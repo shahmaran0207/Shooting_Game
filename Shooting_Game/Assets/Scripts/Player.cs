@@ -57,19 +57,10 @@ public class Player : MonoBehaviour
         BombEffect.SetActive(true);
         Invoke("OffBoomEffect", 5f);
 
-        GameObject[] enemiesEL = objmanager.GetPool("EnemyEL");
         GameObject[] enemiesL = objmanager.GetPool("EnemyL");
         GameObject[] enemiesM = objmanager.GetPool("EnemyM");
         GameObject[] enemiesS = objmanager.GetPool("EnemyS");
 
-        for (int index = 0; index < enemiesEL.Length; index++)
-        {
-            if (enemiesEL[index].activeSelf)
-            {
-                Enemy enemyLogic = enemiesEL[index].GetComponent<Enemy>();
-                enemyLogic.OnHit(3000);
-            }
-        }
 
         for (int index = 0; index < enemiesL.Length; index++)
         {
@@ -98,8 +89,8 @@ public class Player : MonoBehaviour
             }
         }
 
-        GameObject[] bulletsA = GameObject.FindGameObjectsWithTag("BulletEnemyA");
-        GameObject[] bulletsB = GameObject.FindGameObjectsWithTag("BulletEnemyB");
+        GameObject[] bulletsA = GameObject.FindGameObjectsWithTag("Enemy Bullet");
+        GameObject[] bulletsB = GameObject.FindGameObjectsWithTag("Enemy Bullet");
 
         for (int index = 0; index < bulletsA.Length; index++)
         {

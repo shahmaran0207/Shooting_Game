@@ -57,12 +57,6 @@ public class ObjectManager : MonoBehaviour
 
     void Generate()
     {
-        for(int index=0; index<enemyEL.Length; index++)
-        {
-            enemyEL[index]=Instantiate(EnemyELPrefab);
-            enemyEL[index].SetActive(false);
-        }
-
         for (int index = 0; index < enemyL.Length; index++)
         {
             enemyL[index] = Instantiate(EnemyLPrefab);
@@ -125,9 +119,6 @@ public class ObjectManager : MonoBehaviour
     {
         switch (type)
         {
-            case "EnemyEL":
-                targetPool = enemyEL;
-                break;
             case "EnemyL":
                 targetPool = enemyL;
                 break;
@@ -179,9 +170,6 @@ public class ObjectManager : MonoBehaviour
     {
         switch (type)
         {
-            case "EnemyEL":
-                targetPool = enemyEL;
-                break;
             case "EnemyL":
                 targetPool = enemyL;
                 break;
