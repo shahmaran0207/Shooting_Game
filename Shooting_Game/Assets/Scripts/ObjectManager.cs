@@ -18,16 +18,15 @@ public class ObjectManager : MonoBehaviour
     public GameObject bulletBossAPrefab;
     public GameObject bulletBossBPrefab;
     public GameObject bulletFollowerPrefab;
+    public GameObject explosionPrefab;
 
     GameObject[] enemyB;
     GameObject[] enemyL;
     GameObject[] enemyM;
     GameObject[] enemyS;
-
     GameObject[] itemCoin;
     GameObject[] itemBomb;
     GameObject[] itemPower;
-
     GameObject[] bulletPlayerA;
     GameObject[] bulletPlayerB;
     GameObject[] bulletEnemyA;
@@ -36,6 +35,7 @@ public class ObjectManager : MonoBehaviour
     GameObject[] bulletBossB;
     GameObject[] bulletFollower;
     GameObject[] targetPool;
+    GameObject[] explosion;
 
     void Awake()
     {
@@ -56,6 +56,7 @@ public class ObjectManager : MonoBehaviour
         bulletBossA = new GameObject[200];
         bulletBossB = new GameObject[200];
         bulletFollower = new GameObject[200];
+        explosion = new GameObject[200];
 
         Generate();
     }
@@ -137,6 +138,12 @@ public class ObjectManager : MonoBehaviour
             bulletBossB[index] = Instantiate(bulletBossBPrefab);
             bulletBossB[index].SetActive(false);
         }
+
+        for (int index = 0; index < explosion.Length; index++)
+        {
+            explosion[index] = Instantiate(explosionPrefab);
+            explosion[index].SetActive(false);
+        }
     }
 
     public GameObject MakeObj(string type)
@@ -190,12 +197,17 @@ public class ObjectManager : MonoBehaviour
             case "BulletFollower":
                 targetPool = bulletFollower;
                 break;
+
             case "BulletBossA":
                 targetPool = bulletBossA;
                 break;
 
             case "BulletBossB":
                 targetPool = bulletBossB;
+                break;
+
+            case "Explosion":
+                targetPool = explosion;
                 break;
         }
 
@@ -257,6 +269,9 @@ public class ObjectManager : MonoBehaviour
                 break;
             case "BulletBossB":
                 targetPool = bulletBossB;
+                break;
+            case "Explosion":
+                targetPool = explosion;
                 break;
         }
 

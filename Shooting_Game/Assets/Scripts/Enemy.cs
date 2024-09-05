@@ -27,7 +27,10 @@ public class Enemy : MonoBehaviour
     public GameObject itemPower;
     public GameObject itemBomb;
     public GameObject player;
+
     public ObjectManager objectManager;
+
+    public GameManager gameManager;
 
     SpriteRenderer spriteRenderer;
     // Rigidbody2D rigid;
@@ -288,6 +291,7 @@ public class Enemy : MonoBehaviour
 
             gameObject.SetActive(false);
             transform.rotation = Quaternion.identity;       //Quaternion.identity: 기본 회전값 -> 0
+            gameManager.callexplosion(transform.position, enemyName);
         }
     }
 

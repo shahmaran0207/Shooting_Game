@@ -250,6 +250,7 @@ public class Player : MonoBehaviour
 
             life--;
             gameManager.UpdateLifeIcon(life);
+            gameManager.callexplosion(transform.position, "P");
 
             if (life == 0) gameManager.GameOver();
             else gameManager.RespawnPlayer();

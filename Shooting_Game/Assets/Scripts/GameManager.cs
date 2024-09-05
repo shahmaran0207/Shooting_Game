@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         Enemy enemyLogic=enemy.GetComponent<Enemy>();
         enemyLogic.player = player;
         enemyLogic.objectManager = objmanager;
+        enemyLogic.gameManager = this;              //this: 클래스 자신을 일컫는 키워드
 
         if(enemyPoint == 5 || enemyPoint == 6)    //우측 스폰
         {
@@ -163,6 +164,15 @@ public class GameManager : MonoBehaviour
         {
             BombImage[index].color = new Color(1, 1, 1, 1);
         }
+    }
+
+    public void callexplosion(Vector3 pos, string type)
+    {
+        GameObject explosion = objmanager.MakeObj("Explosion");
+        Explosion explosionlogic = explosion.GetComponent<Explosion>();
+
+        explosion.transform.position = pos;
+        explosionlogic.startExplosion(type);
     }
 
     public void GameOver()
