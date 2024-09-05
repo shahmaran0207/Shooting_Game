@@ -73,8 +73,8 @@ public class GameManager : MonoBehaviour
 
         //Stage Increament
         stage++;
-        
-        if (stage > 6) GameOver();
+
+        if (stage > 6) Invoke("GameOver", 5);
         else Invoke("StageStart", 3f);
     }
 
