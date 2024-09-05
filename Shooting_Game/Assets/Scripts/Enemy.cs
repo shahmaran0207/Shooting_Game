@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         switch (enemyName)
         {
             case "B":
-                health = 3000;
+                health = 10;
                 Invoke("Stop", 2);
                 break;
 
@@ -292,6 +292,12 @@ public class Enemy : MonoBehaviour
             gameObject.SetActive(false);
             transform.rotation = Quaternion.identity;       //Quaternion.identity: 기본 회전값 -> 0
             gameManager.callexplosion(transform.position, enemyName);
+
+            //Boss Kill
+            if (enemyName == "B")
+            {
+                gameManager.StageEnd();
+            }
         }
     }
 

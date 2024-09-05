@@ -5,9 +5,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;                     //파일 읽기 위한 라이브러리
 using Unity.VisualScripting;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public int stage;
+    public int spawnIndex;
+
     public ObjectManager objmanager;
 
     public Transform[] spawnPoints;
@@ -27,15 +31,51 @@ public class GameManager : MonoBehaviour
 
     public List<Spawn> spawnList;
 
-    public int spawnIndex;
-
     public bool spawnEnd;
+
+    public Animator StageAnim;
+    public Animator ClearAnim;
+    public Animator fadeAnim;
+
+    public Transform playerPos;
 
     void Awake()
     {
         spawnList = new List<Spawn>();
         enemyObjs = new string[] {"EnemyB","EnemyL", "EnemyM", "EnemyS" };
+        StageStart();
+    }
+
+    public void StageStart()
+    {
+        //Stage UI Load
+        StageAnim.SetTrigger("On");
+        StageAnim.GetComponent<Text>().text = "Stage " + stage + "\nStart!"; 
+        ClearAnim.GetComponent<Text>().text = "Stage " + stage + "\nClear!"; 
+
+        //1. Enemy Spwan File Read
         ReadSpawnFile();
+
+        // Fade In 
+        fadeAnim.SetTrigger("In");
+    }
+
+    public void StageEnd()
+    {
+        //Clear UI Load
+        ClearAnim.SetTrigger("On");
+
+        //Fade Out
+        fadeAnim.SetTrigger("Out");
+
+        //Player Reposition
+        player.transform.position = playerPos.position;
+
+        //Stage Increament
+        stage++;
+        
+        if (stage > 6) GameOver();
+        else Invoke("StageStart", 3f);
     }
 
     void ReadSpawnFile()
@@ -47,7 +87,7 @@ public class GameManager : MonoBehaviour
 
         //2. 리스폰 파일 읽기
         //TextAsset: 텍스트 파일 에셋 클래스
-        TextAsset textFile = Resources.Load("Stage 0") as TextAsset;
+        TextAsset textFile = Resources.Load("Stage "+stage) as TextAsset;
         StringReader stringreader = new StringReader(textFile.text);
 
         while(stringreader != null)
