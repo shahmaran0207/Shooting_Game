@@ -48,11 +48,11 @@
 # 🛠️ Technology Stack (기술 스택)
 
 ## 1. C#  
-| https://github.com/shahmaran0207/Shooting_Game/blob/main/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-removebg-preview.png |
+| <img src="https://github.com/shahmaran0207/Shooting_Game/blob/main/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-removebg-preview.png" alt="matplotlib" width="100"/> | 
 |:-----------------:|
 | **C#** |
 
 ## 2. Tools  
-| https://github.com/shahmaran0207/Shooting_Game/blob/main/Unity.png | 
+| <img src="https://github.com/shahmaran0207/Shooting_Game/blob/main/Unity.png" alt="matplotlib" width="100"/> | 
 |:-----------------:|
 | **Unity** |
