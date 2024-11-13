@@ -48,11 +48,11 @@
 # 🛠️ Technology Stack (기술 스택)
 
 ## 1. C#  
-| ![C# Icon](https://github.com/shahmaran0207/crime_report_correlation/blob/main/csharp_icon.png) |
+| https://github.com/shahmaran0207/Shooting_Game/blob/main/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-removebg-preview.png |
 |:-----------------:|
 | **C#** |
 
 ## 2. Tools  
-| ![Unity Icon](https://github.com/shahmaran0207/crime_report_correlation/blob/main/Unity.png) | 
+| https://github.com/shahmaran0207/Shooting_Game/blob/main/Unity.png | 
 |:-----------------:|
 | **Unity** |
